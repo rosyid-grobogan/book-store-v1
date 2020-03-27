@@ -18,19 +18,16 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws
-            UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        Collection<GrantedAuthority> grantedAuthorities = new
-                ArrayList<>();
+        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         user.getRoles().forEach(role -> {
-            GrantedAuthority grantedAuthority = new
-                    SimpleGrantedAuthority(role.getRoleName());
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getRoleName());
             grantedAuthorities.add(grantedAuthority);
         });
-        return new
-                org.springframework.security.core.userdetails.User(user.getEmail(),
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
                 user.getPassword(), grantedAuthorities);
     }
 }
