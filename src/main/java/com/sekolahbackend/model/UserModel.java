@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserModel extends PersistenceModel {
+
     private String username;
     private String fullName;
     private String email;
