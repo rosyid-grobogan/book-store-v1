@@ -28,8 +28,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .
-                        anonymous()
+                .anonymous()
                 .disable();
     }
 }

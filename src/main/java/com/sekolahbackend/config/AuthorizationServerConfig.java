@@ -19,24 +19,34 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Autowired
     private UserService userService;
+
     @Value("${security.oauth2.resource.id}")
     private String resourceId;
+
     @Value("${security.oauth2.client.id}")
     private String clientId;
+
     @Value("${security.oauth2.client.client-secret}")
     private String clientSecret;
+
     @Value("${security.oauth2.client.access-token-validity-seconds}")
     private int accessTokenValiditySeconds;
+
     @Value("${security.oauth2.client.refresh-token-validity-seconds}")
     private int refreshTokenValiditySeconds;
+
     @Value("${security.oauth2.client.authorized-grant-types}")
     private String[] authorizedGrantTypes;
+
     @Value("${security.oauth2.client.scope}")
     private String[] scopes;
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
@@ -48,10 +58,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes(scopes)
                 .resourceIds(resourceId);
     }
+
     @Override
     public void configure(final AuthorizationServerEndpointsConfigurer endpoints) {
-        endpoints
-                .accessTokenConverter(accessTokenConverter())
+        endpoints.accessTokenConverter(accessTokenConverter())
                 .userDetailsService(userService)
                 .authenticationManager(authenticationManager);
     }

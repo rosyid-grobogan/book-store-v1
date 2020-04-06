@@ -18,6 +18,7 @@ import java.util.Set;
 @Table(name = "user")
 @Where(clause = "status = 'ACTIVE'")
 public class User extends Persistence implements Serializable {
+
     private static final long serialVersionUID = 4457669404205697511L;
 
     @NotNull
@@ -44,12 +45,12 @@ public class User extends Persistence implements Serializable {
     @NotNull
     @Column(columnDefinition = "text")
     private String address;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = {
-            @JoinColumn(name = "username", referencedColumnName =
-                    "username")}, inverseJoinColumns = {
-            @JoinColumn(name = "role_name", referencedColumnName =
-                    "role_name")})
+            @JoinColumn(name = "username", referencedColumnName = "username")},
+            inverseJoinColumns = {
+            @JoinColumn(name = "role_name", referencedColumnName = "role_name")})
     private Set<Role> roles = new HashSet<>();
 }

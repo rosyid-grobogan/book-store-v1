@@ -25,17 +25,18 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws
-            Exception {
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws
-            Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
+
     @Override
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers(

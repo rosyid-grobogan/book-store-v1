@@ -34,10 +34,10 @@ public class BookCategoryRestController {
 	private BookCategoryService bookCategoryService;
 	
 	@PostMapping("/save")
-	public BookCategoryModel save(@RequestBody @Valid BookCategoryRequestCreateModel request, 
-			BindingResult result,
-			HttpServletResponse response) throws IOException {
+	public BookCategoryModel save(@RequestBody @Valid BookCategoryRequestCreateModel request, BindingResult result, HttpServletResponse response) throws IOException {
+
 		BookCategoryModel bookCategoryModel = new BookCategoryModel();
+
 		if (result.hasErrors()) {
 			response.sendError(HttpStatus.BAD_REQUEST.value(), result.getAllErrors().toString());
 			return bookCategoryModel;
@@ -48,10 +48,10 @@ public class BookCategoryRestController {
 	}
 	
 	@PostMapping("/update")
-	public BookCategoryModel update(@RequestBody @Valid BookCategoryRequestUpdateModel request, 
-			BindingResult result,
-			HttpServletResponse response) throws IOException {
+	public BookCategoryModel update(@RequestBody @Valid BookCategoryRequestUpdateModel request, BindingResult result, HttpServletResponse response) throws IOException {
+
 		BookCategoryModel bookCategoryModel = new BookCategoryModel();
+
 		if (result.hasErrors()) {
 			response.sendError(HttpStatus.BAD_REQUEST.value(), result.getAllErrors().toString());
 			return bookCategoryModel;

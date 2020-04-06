@@ -25,10 +25,6 @@ import lombok.Data;
 @MappedSuperclass
 public class Persistence {
 
-	public enum Status {
-		ACTIVE, NOT_ACTIVE
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
@@ -56,8 +52,13 @@ public class Persistence {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
+	public enum Status {
+		ACTIVE, NOT_ACTIVE
+	}
+
 	@PrePersist
 	public void prePersist() {
+
 		setCreatedTime(new Date());
 		setUpdatedTime(new Date());
 		setStatus(Status.ACTIVE);
@@ -66,6 +67,7 @@ public class Persistence {
 
 	@PreUpdate
 	public void preUpdate() {
+
 		setUpdatedTime(new Date());
 		setUpdatedBy("system");
 	}

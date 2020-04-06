@@ -13,9 +13,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "role")
 public class Role {
+
     public enum RoleName {
         ROLE_ADMIN, ROLE_USER
     }
+
     @Id
     @NotNull
     @Size(min = 0, max = 50)

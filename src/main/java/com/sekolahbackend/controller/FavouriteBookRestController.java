@@ -18,12 +18,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/rest/favourite-book")
 public class FavouriteBookRestController {
+
     @Autowired
     private FavouriteBookService favouriteBookService;
     @PostMapping("/saveOrUpdate")
-    public FavouriteBookModel saveOrUpdate(@RequestBody @Valid FavouriteBookRequestModel request, BindingResult result,
-                                           HttpServletResponse response) throws IOException {
+    public FavouriteBookModel saveOrUpdate(@RequestBody @Valid FavouriteBookRequestModel request, BindingResult result, HttpServletResponse response) throws IOException {
+
         FavouriteBookModel favouriteBookModel = new FavouriteBookModel();
+
         if (result.hasErrors()) {
             response.sendError(HttpStatus.BAD_REQUEST.value(),
                     result.getAllErrors().toString());
@@ -31,25 +33,28 @@ public class FavouriteBookRestController {
         } else
             return favouriteBookService.saveOrUpdate(request);
     }
+
     @DeleteMapping("/deleteByFavouriteBookDetailId/{detailId}")
-    public FavouriteBookModel delete(@PathVariable("detailId") final
-                                     Integer detailId) {
-        return
-                favouriteBookService.deleteByFavouriteBookDetailId(detailId);
+    public FavouriteBookModel delete(@PathVariable("detailId") final Integer detailId) {
+
+        return favouriteBookService.deleteByFavouriteBookDetailId(detailId);
     }
+
     @GetMapping("/findAll")
     public List<FavouriteBookModel> findAll() {
 
         return favouriteBookService.findAll();
     }
+
     @GetMapping("/findById/{id}")
     public FavouriteBookModel findById(@PathVariable("id") final Integer
                                                id) {
         return favouriteBookService.findById(id);
     }
+
     @GetMapping("/findByUserId/{userId}")
-    public FavouriteBookModel findByUserId(@PathVariable("userId") final
-                                           Integer userId) {
+    public FavouriteBookModel findByUserId(@PathVariable("userId") final Integer userId) {
+
         return favouriteBookService.findByUserId(userId);
     }
 }
