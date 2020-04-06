@@ -24,6 +24,11 @@ import lombok.Data;
 @Data
 @MappedSuperclass
 public class Persistence {
+	private static final long serialVersionUID = -3268940466026097783L;
+
+	public enum Status {
+		ACTIVE, NOT_ACTIVE
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,9 +57,6 @@ public class Persistence {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
-	public enum Status {
-		ACTIVE, NOT_ACTIVE
-	}
 
 	@PrePersist
 	public void prePersist() {
