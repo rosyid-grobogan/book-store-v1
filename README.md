@@ -20,3 +20,15 @@ Monolithic
 # Enhanced Entity Relationship Model
 
 ![Arsitektur Aplikasi](src/main/resources/static/ERM.png)
+
+## #19 - WEEK 14
+```
+INSERT INTO public.role (role_name) 
+VALUES ('ROLE_CLIENT');
+
+INSERT INTO public."user" (id, created_by, created_time, status, updated_by, updated_time, address, email, full_name, password, phone_number, username) 
+VALUES (3, 'init', '2020-03-29 00:00:00', 'ACTIVE', NULL, '2020-03-29 00:00:00', 'Semarang, Jawa Tengah', 'clientapps@email.com', 'Client Apps', '$2a$04$mX4QWTHsMhsvclOWafopAOVlmmx0r23sjuk2a0vGhr1WpK8h1fPHm', '081234567890', 'clientapps');
+
+INSERT INTO public.user_role (username, role_name) 
+VALUES ('clientapps', 'ROLE_CLIENT');
+```
