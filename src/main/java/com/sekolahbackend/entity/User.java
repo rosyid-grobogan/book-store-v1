@@ -19,7 +19,8 @@ import java.util.Set;
 @Where(clause = "status = 'ACTIVE'")
 public class User extends Persistence implements Serializable {
 
-    private static final long serialVersionUID = 4457669404205697511L;
+    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 4457669404205697511L;
 
     @NotNull
     @Size(min = 5, max = 50)

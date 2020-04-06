@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookCategoryModel extends PersistenceModel {
-	
+
 	private String name;
 
 	private String code;

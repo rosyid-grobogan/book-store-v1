@@ -24,7 +24,9 @@ import lombok.Data;
 @Data
 @MappedSuperclass
 public class Persistence {
-	private static final long serialVersionUID = -3268940466026097783L;
+
+	private static final long serialVersionUID = 1L;
+//	private static final long serialVersionUID = -3268940466026097783L;
 
 	public enum Status {
 		ACTIVE, NOT_ACTIVE

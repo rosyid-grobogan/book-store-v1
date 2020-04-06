@@ -14,7 +14,8 @@ import java.util.Set;
 @Where(clause = "status = 'ACTIVE'")
 public class FavouriteBook extends Persistence {
 
-    private static final long serialVersionUID = -1079959320014409414L;
+    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = -1079959320014409414L;
 
     @JoinColumn(name = "user_id")
     @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
