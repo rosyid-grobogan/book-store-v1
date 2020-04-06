@@ -73,13 +73,13 @@ public class BookCategoryRestController {
 		return bookCategoryService.deleteById(id);
 	}
 
-	@PreAuthorize("hasRole('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_USER')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_USER')")
 	@GetMapping("/findAll")
 	public List<BookCategoryModel> findAll() {
 		return bookCategoryService.findAll();
 	}
 
-	@PreAuthorize("hasRole( 'ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_USER' )")
+	@PreAuthorize("hasAnyRole( 'ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_USER' )")
 	@GetMapping("/findById/{id}")
 	public BookCategoryModel findById(@PathVariable("id") final Integer id) {
 		return bookCategoryService.findById(id);

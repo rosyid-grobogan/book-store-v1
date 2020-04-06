@@ -32,3 +32,14 @@ VALUES (3, 'init', '2020-03-29 00:00:00', 'ACTIVE', NULL, '2020-03-29 00:00:00',
 INSERT INTO public.user_role (username, role_name) 
 VALUES ('clientapps', 'ROLE_CLIENT');
 ```
+
+## Single
+```
+@PreAuthorize("hasRole('ROLE_ADMIN')")
+```
+
+## Multi
+```
+@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_USER')")
+```
+
